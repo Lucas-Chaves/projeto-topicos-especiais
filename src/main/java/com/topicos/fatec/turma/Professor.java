@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,9 +14,12 @@ public class Professor {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Size(min = 4, message = "Seu nome precisa conter mais de 4 caracteres")
 	private String nome;
 	private String sobreNome;
 	private String cpf;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
 	private Turma turma;

@@ -12,7 +12,7 @@ public class Turma {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String nomeTurma;
+	private String nome;
 	private String horarioInicio;
 	private String horarioFinal;
 	private String semestre;
@@ -22,11 +22,11 @@ public class Turma {
 	public Turma() {
 	}
 
-	public Turma(Long id, String nomeTurma, String horarioInicio, String horarioFinal, String semestre,
-			List<Professor> professores) {
+	public Turma(Long id, String nome, String horarioInicio, String horarioFinal, String semestre,
+				 List<Professor> professores) {
 		super();
 		this.id = id;
-		this.nomeTurma = nomeTurma;
+		this.nome = nome;
 		this.horarioInicio = horarioInicio;
 		this.horarioFinal = horarioFinal;
 		this.semestre = semestre;
@@ -41,12 +41,12 @@ public class Turma {
 		this.id = id;
 	}
 
-	public String getNomeTurma() {
-		return nomeTurma;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNomeTurma(String nomeTurma) {
-		this.nomeTurma = nomeTurma;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getHorarioInicio() {
@@ -83,7 +83,7 @@ public class Turma {
 
 	@Override
 	public String toString() {
-		return "Turma [id=" + id + ", nomeTurma=" + nomeTurma + ", horarioInicio=" + horarioInicio + ", horarioFinal="
+		return "Turma [id=" + id + ", nomeTurma=" + nome + ", horarioInicio=" + horarioInicio + ", horarioFinal="
 				+ horarioFinal + ", semestre=" + semestre + "]";
 	}
 
