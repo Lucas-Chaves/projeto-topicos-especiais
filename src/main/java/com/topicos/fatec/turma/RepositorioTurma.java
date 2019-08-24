@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RepositorioTurma extends JpaRepository<Turma,Long> {
 
-  @Query("select u from Turma u where u.id = 1")
-  public List<Turma> buscaTurma(Long id);
+  @Query("select t from Turma t where t.nome like %?1%")
+  public List<Turma> buscaTurma(String nome);
 
 }
