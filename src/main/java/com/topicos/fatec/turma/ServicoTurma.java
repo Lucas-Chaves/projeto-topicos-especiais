@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @RestController
-public class ServicoTurma {
+public class ServicoTurma  implements  Service {
 
   @Autowired
   private RepositorioTurma repositorioTurma;
@@ -21,6 +21,7 @@ public class ServicoTurma {
   private RepositorioProfessor repositorioProfessor;
 
   @GetMapping("/turma/{nome}")
+  @Override
   public List<Turma> buscaTurma(@PathVariable String nome) {
     List<Turma> turma = repositorioTurma.buscaTurma(nome);
 
@@ -30,6 +31,7 @@ public class ServicoTurma {
   }
 
   @PostMapping("/turma")
+  @Override
   public ResponseEntity<Object> criaTurma(@Valid @RequestBody Turma turma) {
     Turma turmaSalva = repositorioTurma.save(turma);
 
@@ -39,6 +41,7 @@ public class ServicoTurma {
   }
 
   @PostMapping("/turma/{id}/professor")
+  @Override
   public ResponseEntity<Object> criaProfessor(@PathVariable Long id, @Valid @RequestBody Professor professor) {
     Optional<Turma> optionalTurma = repositorioTurma.findById(id);
 
@@ -57,6 +60,7 @@ public class ServicoTurma {
 
 
   @GetMapping("/turma/{id}/professor/{nome}")
+  @Override
   public Professor buscaProfessor(@PathVariable String nome) {
     List<Professor> professores = repositorioProfessor.buscaProfessor(nome);
 
